@@ -3,7 +3,7 @@ const path = require('path');
 
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
