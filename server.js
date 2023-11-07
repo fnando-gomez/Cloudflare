@@ -11,10 +11,12 @@ app.get('/', (req, res) => {
     res.sendFile(htmlPath);
 });
 
-app.get('/headers', (req, res) => {
-    const htmlPath = path.join(__dirname, 'headers.html');
-
 app.get('/Dani', (req, res) => {
+    const htmlPath = path.join(__dirname, 'dani.html');
+    res.sendFile(htmlPath);
+});
+
+app.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
     
     // Get all HTTP request headers
