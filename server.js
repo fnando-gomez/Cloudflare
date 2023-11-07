@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
 
 app.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
+
+app.get('/Dani', (req, res) => {
+    const htmlPath = path.join(__dirname, 'headers.html');
     
     // Get all HTTP request headers
     const headers = JSON.stringify(req.headers, null, 2);
