@@ -1,25 +1,14 @@
 const express = require('express');
 const path = require('path');
-const https = require('https');
-const fs = require('fs');
 
 
 const app = express();
-const port = 80;
-const port = 443; // Default HTTPS port
-
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/fullchain.pem')
-};
-
-const server = https.createServer(options, app);
+const port =  80;
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
     const htmlPath = path.join(__dirname, 'index.html');
     res.sendFile(htmlPath);
-    console.log('HTTPS server-up');
 });
 
 app.get('/headers', (req, res) => {
@@ -40,6 +29,6 @@ app.get('/headers', (req, res) => {
 });
 
 // Start the server
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
