@@ -3,12 +3,16 @@ const path = require('path');
 
 
 const app = express();
-const port =  80;
+const port =  8000;
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
     const htmlPath = path.join(__dirname, 'index.html');
     res.sendFile(htmlPath);
+});
+
+app.get('/tunnel', (req,res) =>{
+    res.send("Hello, tunnel subdomain");    
 });
 
 app.get('/headers', (req, res) => {
