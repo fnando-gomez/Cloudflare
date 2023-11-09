@@ -8,8 +8,9 @@ const app = express();
 const port = 443; // Default HTTPS port
 
 const options = {
-    key: fs.readFileSync(''),
-    cert: fs.readFileSync(''),
+    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/chain.pem'),
 };
 
 const server = https.createServer(options, app);
@@ -18,7 +19,7 @@ const server = https.createServer(options, app);
 app.get('/', (req, res) => {
     const htmlPath = path.join(__dirname, 'index.html');
     res.sendFile(htmlPath);
-    console.log('HTTPS server up');
+    console.log('HTTPS server-up');
 });
 
 app.get('/headers', (req, res) => {
