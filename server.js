@@ -1,9 +1,7 @@
-const express = require('express');
+const express = require ('express');
 const path = require('path');
-
-
 const app = express();
-const port =  8000;
+const port =  80;
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
@@ -11,9 +9,6 @@ app.get('/', (req, res) => {
     res.sendFile(htmlPath);
 });
 
-app.get('/tunnel', (req,res) =>{
-    res.send("Hello, tunnel subdomain");    
-});
 
 app.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
