@@ -5,8 +5,8 @@ const fs = require('fs');
 
 
 const app = express();
-//const port = 80;
-const port = 443; // Default HTTPS port
+const port = 80;
+//const port = 443; // Default HTTPS port
 
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
