@@ -1,19 +1,24 @@
 const express = require('express');
 const path = require('path');
+const https = require('https');
+const fs = require('fs')
 
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = 443; // Default HTTPS port
+
+const options = {
+    key: fs.readFileSync(''),
+    cert: fs.readFileSync(''),
+};
+
+const server = https.createServer(options, app);
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
     const htmlPath = path.join(__dirname, 'index.html');
     res.sendFile(htmlPath);
-});
-
-app.get('/Dani', (req, res) => {
-    const htmlPath = path.join(__dirname, 'dani.html');
-    res.sendFile(htmlPath);
+    console.log('HTTPS server up');
 });
 
 app.get('/headers', (req, res) => {
@@ -34,6 +39,6 @@ app.get('/headers', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
