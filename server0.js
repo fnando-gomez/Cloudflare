@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import vhost from 'vhost';
-
+import fs from 'fs';
 const port = 80;
 
 
@@ -28,7 +28,6 @@ routerMain.get('/headers', (req, res) => {
     const headers = JSON.stringify(req.headers, null, 2);
 
     // Read the HTML file and replace a placeholder with the headers
-    const fs = require('fs');
     fs.readFile(htmlPath, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading HTML file');
