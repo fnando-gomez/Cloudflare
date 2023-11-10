@@ -12,17 +12,17 @@ const appTunnel = express.Router();
 
 // Define a route to serve the HTML page
 routerMain.get('/', (req, res) => {
-    const htmlPath = path.join(__dirname, 'index.html');
+    const htmlPath = path.join('./index.html');
     res.sendFile(htmlPath);
 });
 
 appTunnel.get('/', (req, res) => {
-    const htmlPath = path.join(__dirname, 'indexTunnel.html');
+    const htmlPath = path.join('./indexTunnel.html');
     res.sendFile(htmlPath);
 });
 
 routerMain.get('/headers', (req, res) => {
-    const htmlPath = path.join(__dirname, 'headers.html');
+    const htmlPath = path.join('./headers.html');
     
     // Get all HTTP request headers
     const headers = JSON.stringify(req.headers, null, 2);
