@@ -9,8 +9,8 @@ const app = express();
 const port = 443; // Default HTTPS port
 
 const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online-0001/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online-0001/fullchain.pem'),
 };
 
 const server = https.createServer(options, app);
