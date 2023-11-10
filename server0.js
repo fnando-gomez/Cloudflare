@@ -1,18 +1,27 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import vhost from 'vhost';
+
+const port = 80;
 
 
 const app = express();
-const port = 80;
+
+const routerMain = express.Router();
+const appTunnel = express.Router();
 
 // Define a route to serve the HTML page
-app.get('/', (req, res) => {
+routerMain.get('/', (req, res) => {
     const htmlPath = path.join(__dirname, 'index.html');
     res.sendFile(htmlPath);
 });
 
+appTunnel.get('/', (req, res) => {
+    const htmlPath = path.join(__dirname, 'indexTunnel.html');
+    res.sendFile(htmlPath);
+});
 
-app.get('/headers', (req, res) => {
+routerMain.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
     
     // Get all HTTP request headers
@@ -28,6 +37,9 @@ app.get('/headers', (req, res) => {
         res.send(data);
     });
 });
+
+app.use(vhost('hawkingslab.online', app));
+app.use(vhost('tunnel.hawkingslab.online', appTunnel));
 
 // Start the server
 app.listen(port, () => {
