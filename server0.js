@@ -38,7 +38,7 @@ routerMain.get('/headers', (req, res) => {
     });
 });
 
-app.use(vhost('hawkingslab.online', app));
+app.use(vhost('hawkingslab.online', routerMain));
 app.use(vhost('tunnel.hawkingslab.online', appTunnel));
 
 // Start the server
