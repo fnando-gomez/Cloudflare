@@ -9,8 +9,8 @@ const port = 80;
 //const port = 443; // Default HTTPS port
 
 const options = {
-    key: fs.readFileSync('/etc/ssl/certs/privkey.pem'),
-    cert: fs.readFileSync('/etc/ssl/certs/certificate.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/cert.pem'),
 };
 
 const server = https.createServer(options, app);
