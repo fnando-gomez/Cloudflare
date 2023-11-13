@@ -17,8 +17,8 @@ app.get('/.well-known/acme-challenge/TfQxPsClqnGJlZas7kPpeg', (req, res) => {
     res.sendFile(filePath);
 });
 
-app.get('/.well-known/acme-challenge/ySopp0yK-_p6FsSY_AkPgQ', (req, res) => {
-    const filePath = path.join(__dirname, './public/.well-known/acme-challenge/ySopp0yK-_p6FsSY_AkPgQ/challenge2.txt');
+app.get('/.well-known/acme-challenge/ZKDJgwDDwwuHtSKtMaJSHQ', (req, res) => {
+    const filePath = path.join(__dirname, './public/.well-known/acme-challenge/ZKDJgwDDwwuHtSKtMaJSHQ/challenge2.txt');
     res.sendFile(filePath);
 });
 
