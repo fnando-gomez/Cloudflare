@@ -11,6 +11,15 @@ app.get('/', (req, res) => {
     res.sendFile(htmlPath);
 });
 
+// Define a route to serve the challenge file
+app.get('/.well-known/acme-challenge/hPuAUoqNAho_sXexCkr_Ew', (req, res) => {
+    const filePath = path.join(__dirname, './public/.well-known/acme-challenge/hPuAUoqNAho_sXexCkr_Ew/challenge.txt');
+    res.sendFile(filePath);
+});
+
+app.get('/test', (req, res) => {
+    const htmlPath = path.join(__dirname, 'hPuAUoqNAho_sXexCkr_Ew.txt');
+});
 
 app.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
@@ -28,6 +37,9 @@ app.get('/headers', (req, res) => {
         res.send(data);
     });
 });
+
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
 // Start the server
 app.listen(port, () => {
