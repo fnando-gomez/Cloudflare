@@ -11,16 +11,9 @@ app.get('/', (req, res) => {
     res.sendFile(htmlPath);
 });
 
-// Define a route to serve the challenge file
-app.get('/.well-known/acme-challenge/TfQxPsClqnGJlZas7kPpeg', (req, res) => {
-    const filePath = path.join(__dirname, './public/.well-known/acme-challenge/TfQxPsClqnGJlZas7kPpeg/challenge.txt');
-    res.sendFile(filePath);
-});
 
-app.get('/.well-known/acme-challenge/ZKDJgwDDwwuHtSKtMaJSHQ', (req, res) => {
-    const filePath = path.join(__dirname, './public/.well-known/acme-challenge/ZKDJgwDDwwuHtSKtMaJSHQ/challenge2.txt');
-    res.sendFile(filePath);
-});
+
+
 
 app.get('/test', (req, res) => {
     const htmlPath = path.join(__dirname, 'hPuAUoqNAho_sXexCkr_Ew.txt');
