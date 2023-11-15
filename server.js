@@ -1,16 +1,16 @@
 const express = require('express');
 const path = require('path');
 const https = require('https');
-const fs = require('fs');
+const fs = require('fs')
 
 
 const app = express();
-//const port = 80;
-const port = 443; // Default HTTPS port
+const port = 80;
+//const port = 443; // Default HTTPS port
 
 const options = {
-    key: fs.readFileSync('/root/hawkingslab.online.key'),
-    cert: fs.readFileSync('/root/hawkingslab.online.csr'),
+    key: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/hawkingslab.online/cert.pem'),
 };
 
 const server = https.createServer(options, app);
