@@ -12,13 +12,6 @@ app.get('/', (req, res) => {
 });
 
 
-
-
-
-app.get('/test', (req, res) => {
-    const htmlPath = path.join(__dirname, 'hPuAUoqNAho_sXexCkr_Ew.txt');
-});
-
 app.get('/headers', (req, res) => {
     const htmlPath = path.join(__dirname, 'headers.html');
     
