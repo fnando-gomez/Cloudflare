@@ -11,7 +11,6 @@ app.get('/', (req, res) => {
     res.sendFile(htmlPath);
 });
 
-
 app.get('/headersTunnel', (req, res) => {
     const htmlPath = path.join(__dirname, 'headersTunnel.html');
     
@@ -27,6 +26,11 @@ app.get('/headersTunnel', (req, res) => {
         data = data.replace('{{headers}}', headers);
         res.send(data);
     });
+});
+
+app.get('/secure', (req, res) => {
+    const htmlPath = path.join(__dirname, 'secureTunnel.html');
+    res.sendFile(htmlPath);
 });
 
 // Serve static files from the 'public' directory
