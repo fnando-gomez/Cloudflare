@@ -17,7 +17,7 @@ const server = https.createServer(options, app);
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
-    const htmlPath = path.join(__dirname, 'index.html');
+    const htmlPath = path.join(__dirname, 'indexT.html');
     res.sendFile(htmlPath);
     console.log('HTTPS server-up');
 });

@@ -3,17 +3,17 @@ const path = require('path');
 
 
 const app = express();
-const port = 80;
+const port = 8080;
 
 // Define a route to serve the HTML page
 app.get('/', (req, res) => {
-    const htmlPath = path.join(__dirname, 'index.html');
+    const htmlPath = path.join(__dirname, 'indexTunnel.html');
     res.sendFile(htmlPath);
 });
 
 
-app.get('/headers', (req, res) => {
-    const htmlPath = path.join(__dirname, 'headers.html');
+app.get('/headersTunnel', (req, res) => {
+    const htmlPath = path.join(__dirname, 'headersTunnel.html');
     
     // Get all HTTP request headers
     const headers = JSON.stringify(req.headers, null, 2);
